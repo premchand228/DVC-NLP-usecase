@@ -18,6 +18,13 @@ STAGE="one"
 def main(config_path,params_path):
     config=read_yaml(config_path)
     params=read_yaml(params_path)
+    source_data=config["source_data"]
+    source_data_dir=source_data["data_dir"]
+    source_data_file=source_data["data_file"]
+    input_data=os.path.join(source_data_dir,source_data_file)
+    split=params["prepare"]["split"]
+    seed=params["prepare"]["seed"]
+
 
 
     
