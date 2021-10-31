@@ -1,6 +1,18 @@
 # dvc-project-template
 DVC project template
 
+# Reference Repository
+* [official reference repo](https://github.com/iterative/example-get-started)
+
+* [DVC STUDIO](https://studio.iterative.ai/)
+
+* [MY View](https://studio.iterative.ai/user/c17hawke/views/DVC-NLP-Simple-usecase-3xolnsi26a)
+
+* [Bag of Words- Krish Naik](https://youtu.be/D2V1okCEsiE)
+
+* [TF-IDF- Krish Naik](https://youtu.be/D2V1okCEsiE)
+
+[Reference Repo] : 
 ## STEPS -
 
 ### STEP 01- Create a repository by using template repository
