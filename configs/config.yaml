@@ -2,8 +2,8 @@
 
 artifacts:
   ARTIFACTS_DIR: artifacts
-  TRAIN_DATA: train
-  TEST_DATA: test
+  TRAIN_DATA: train.tsv
+  TEST_DATA: test.tsv
   PREPARED_DATA: prepared
 
 source_data:
