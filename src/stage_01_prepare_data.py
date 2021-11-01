@@ -4,6 +4,7 @@ import shutil
 from tqdm import tqdm
 import logging
 from src.utils.common import read_yaml,create_directory
+from src.utils.data_managemnt import process_posts
 import random
 
 
@@ -41,8 +42,8 @@ def main(config_path,params_path):
     with open(input_data,encoding=encode) as fd_in:
         with open(train_data_path,"w",encoding=encode) as fd_out_train:
             with open(test_data_path,"w",encoding=encode) as fd_out_test:
-                pass
-                #process_posts(fd_in,fd_out_train,fd_out_test,"<python>",split)
+                
+                process_posts(fd_in,fd_out_train,fd_out_test,"<python>",split)
 
 
 
