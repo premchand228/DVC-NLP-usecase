@@ -3,11 +3,11 @@ prepare:
   split: 0.205
   seed: 2021
 
-featurize:  
+featurize:
   max_features: 3000
-  ngrams:  2
+  ngrams: 2
 
 train:
   seed: 2021
-  n_est: 100
-  min_split: 16  
+  n_est: 150
+  min_split: 18
