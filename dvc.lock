@@ -10,8 +10,8 @@ stages:
       md5: a304afb96060aad90176268345e10355
       size: 37891850
     - path: params.yaml
-      md5: b88b5795386f88aa9fda9349fbfd272e
-      size: 216
+      md5: 2a732cd22339850c3553a1ac36913a3e
+      size: 213
     - path: src\stage_01_prepare_data.py
       md5: 17e70948fcfee3bf5a6023aef73d608a
       size: 2229
@@ -35,8 +35,8 @@ stages:
       md5: d94a4ed066734b2e21be2679a0c80d53
       size: 450
     - path: params.yaml
-      md5: b88b5795386f88aa9fda9349fbfd272e
-      size: 216
+      md5: 2a732cd22339850c3553a1ac36913a3e
+      size: 213
     - path: src\stage_02_featurization.py
       md5: fb86d9c5388dc178d1b5bcb7e5691a6f
       size: 3134
@@ -66,8 +66,8 @@ stages:
       md5: d94a4ed066734b2e21be2679a0c80d53
       size: 450
     - path: params.yaml
-      md5: b88b5795386f88aa9fda9349fbfd272e
-      size: 216
+      md5: 2a732cd22339850c3553a1ac36913a3e
+      size: 213
     - path: src/utils/common.py
       md5: da1e9bbf592aa85cc389ba312f26ef70
       size: 1341
@@ -76,14 +76,14 @@ stages:
       size: 2210
     outs:
     - path: artifacts/model/model.pkl
-      md5: 3c4c40f6b890feee46651ba99bedc208
-      size: 3503015
+      md5: 4d4ebbee944fedf4a4f3344ca4c69dac
+      size: 5114711
   evaluate:
     cmd: python src\stage_04_evaluate.py --config=configs/config.yaml
     deps:
     - path: artifacts/model/model.pkl
-      md5: 3c4c40f6b890feee46651ba99bedc208
-      size: 3503015
+      md5: 4d4ebbee944fedf4a4f3344ca4c69dac
+      size: 5114711
     - path: artifacts\Features\test.pkl
       md5: d26d4ee8f042a8c61cee6be924986f80
       size: 2652301
@@ -98,13 +98,13 @@ stages:
       size: 2816
     outs:
     - path: prc.json
-      md5: fa28fcd3de0c902837c331b114683c28
-      size: 136350
+      md5: c63801c11cb6fbca54126d221ddde29f
+      size: 135497
     - path: roc.json
-      md5: 565ed8822b02df54a22a8ed19330cccb
-      size: 95912
+      md5: ee65ec9e1cb1a3f231e897b4e49cbd1f
+      size: 83300
     - path: scores.json
-      md5: fa71c8b611c9de96afc923706176d7a1
+      md5: 07b905643cf8d159bd0525df9432e5f7
       size: 76
   run_plots_commands:
     cmd: dvc plots diff
