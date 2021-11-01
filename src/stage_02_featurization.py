@@ -37,7 +37,7 @@ def main(config_path,params_path):
     train_words = np.array(df_train.text.str.lower().values.astype("U"))
     print(train_words[0:20])
 
-    #create_directory()
+    #create_directory() 
 
 
 if __name__ == '__main__':
