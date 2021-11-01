@@ -2,8 +2,9 @@ import argparse
 import os
 import shutil
 from tqdm import tqdm
+import numpy as np
 import logging
-from src.utils.common import read_yaml,create_directory
+from src.utils.common import read_yaml,create_directory,get_df
 
 logging.basicConfig(
     filename=os.path.join("logs", 'running_logs.log'), 
@@ -28,20 +29,27 @@ def main(config_path,params_path):
     create_directory([feature_data_dir])
     feature_train=os.path.join(feature_data_dir,artifacts["FEATURE_OUT_TRAIN"])
     feature_test=os.path.join(feature_data_dir,artifacts["FEATURE_OUT_TEST"])
-    
+    max_features=params["featurize"]["max_features"]
+    ngrams=params["featurize"]["ngrams"]
 
-    create_directory()
+    df_train=get_df(train_data_path)
+
+    train_words = np.array(df_train.text.str.lower().values.astype("U"))
+    print(train_words[0:20])
+
+    #create_directory()
 
 
 if __name__ == '__main__':
     args = argparse.ArgumentParser()
-    args.add_argument("--config", "-c", default="config/config.yaml")
+    args.add_argument("--config", "-c", default="configs/config.yaml")
+    args.add_argument("--params", "-p", default="params.yaml")
     parsed_args = args.parse_args()
-    
+
     try:
         logging.info("\n********************")
         logging.info(f">>>>> stage {STAGE} started <<<<<")
-        main(config_path=parsed_args.config)
+        main(config_path=parsed_args.config,params_path=parsed_args.params)
         logging.info(f">>>>> stage {STAGE} completed! all the data are saved in local <<<<<n")
     except Exception as e:
         logging.exception(e)
