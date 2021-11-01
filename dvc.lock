@@ -32,17 +32,17 @@ stages:
     cmd: python src\stage_02_featurization.py
     deps:
     - path: configs\config.yaml
-      md5: 922494e9c50d517517b539824bf3b5fc
-      size: 324
+      md5: d94a4ed066734b2e21be2679a0c80d53
+      size: 450
     - path: params.yaml
-      md5: d6f0507a9a0dcefe62198bea148bc6ff
-      size: 161
+      md5: b88b5795386f88aa9fda9349fbfd272e
+      size: 216
     - path: src\stage_02_featurization.py
       md5: fb86d9c5388dc178d1b5bcb7e5691a6f
       size: 3134
     - path: src\utils\common.py
-      md5: f5de7a106416a86463965d68d73ef954
-      size: 1192
+      md5: da1e9bbf592aa85cc389ba312f26ef70
+      size: 1341
     - path: src\utils\data_managemnt.py
       md5: 6a86fff1eb5a10c2db6680ecc08bf60b
       size: 870
@@ -51,8 +51,8 @@ stages:
       size: 710
     outs:
     - path: artifacts\Features\test.pkl
-      md5: 81164fa4daecfc05da4ad928f4144482
-      size: 2597441
+      md5: d26d4ee8f042a8c61cee6be924986f80
+      size: 2652301
     - path: artifacts\Features\train.pkl
-      md5: 30c0f34f19273c212412655d72e44c2a
-      size: 10134729
+      md5: 1283585d7e6d7adf9b49796dedcedd4c
+      size: 10078033
