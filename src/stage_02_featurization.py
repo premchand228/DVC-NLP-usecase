@@ -5,7 +5,8 @@ from tqdm import tqdm
 import numpy as np
 import logging
 from src.utils.common import read_yaml,create_directory,get_df
-from sklearn.feature_extraction.text import CountVectorizer, TfidfVectorizer
+from sklearn.feature_extraction.text import CountVectorizer, TfidfTransformer
+from src.utils.featurize import save_matrix
 
 logging.basicConfig(
     filename=os.path.join("logs", 'running_logs.log'), 
@@ -36,21 +37,29 @@ def main(config_path,params_path):
     df_train=get_df(train_data_path)
 
     train_words = np.array(df_train.text.str.lower().values.astype("U"))
-    print(train_words[0:20])
+    #print(train_words[0:20])
 
     #create_directory() 
-    bag_of_words=CountVectorizer(stop_words="english",max_features=max_features,ngrams_range=(1,ngrams))
+    bag_of_words=CountVectorizer(stop_words="english",max_features=max_features,ngram_range=(1, ngrams))
     bag_of_words.fit(train_words)
     train_words_binary_matrix=bag_of_words.transform(train_words)
 
-    tfidf=TfidfVectorizer(smooth_idf=False)
+    tfidf=TfidfTransformer(smooth_idf=False)
 
     ## Smooth idf weights by adding one to document frequencies, 
     # as if an extra document was seen containing every term in the collection exactly once. Prevents zero divisions.
 
     tfidf.fit(train_words_binary_matrix)
     train_words_tf_idf_matrix=tfidf.transform(train_words_binary_matrix)
-    
+    save_matrix(df_train,train_words_tf_idf_matrix,feature_train)
+
+    df_test = get_df(test_data_path)
+    test_words = np.array(df_test.text.str.lower().values.astype("U"))
+    test_words_binary_matrix = bag_of_words.transform(test_words)
+    test_words_tfidf_matrix = tfidf.transform(test_words_binary_matrix)
+
+    save_matrix(df_test, test_words_tfidf_matrix, feature_test)
+
 
 if __name__ == '__main__':
     args = argparse.ArgumentParser()

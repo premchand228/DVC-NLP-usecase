@@ -12,3 +12,16 @@
       outs:
       - artifacts\prepared\test.tsv
       - artifacts\prepared\train.tsv
+    featurize_data:
+      cmd: python src\stage_02_featurization.py
+      deps:
+        - src\stage_02_featurization.py
+        - src\utils\common.py
+        - src\utils\data_managemnt.py
+        - configs\config.yaml
+        - params.yaml
+        - src\utils\featurize.py
+      outs:
+        - artifacts\Features\test.pkl
+        -  artifacts\Features\train.pkl
+
