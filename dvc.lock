@@ -4,27 +4,55 @@ stages:
     cmd: python src\stage_01_prepare_data.py
     deps:
     - path: configs\config.yaml
-      md5: 068c014a0d1002e0834f4dc361ff135e
-      size: 231
+      md5: 922494e9c50d517517b539824bf3b5fc
+      size: 324
     - path: data\data.xml
       md5: a304afb96060aad90176268345e10355
       size: 37891850
     - path: params.yaml
-      md5: c7f360a9eed9ec3574cc78e0d19f2c10
-      size: 106
+      md5: d6f0507a9a0dcefe62198bea148bc6ff
+      size: 161
     - path: src\stage_01_prepare_data.py
       md5: 17e70948fcfee3bf5a6023aef73d608a
       size: 2229
     - path: src\utils\common.py
-      md5: c2c3d7da4258223b60e873224cc70677
-      size: 1002
+      md5: f5de7a106416a86463965d68d73ef954
+      size: 1192
     - path: src\utils\data_managemnt.py
       md5: 6a86fff1eb5a10c2db6680ecc08bf60b
       size: 870
     outs:
     - path: artifacts\prepared\test.tsv
-      md5: 60c757f3b30604473de7fa775dfc00d9
-      size: 4899778
+      md5: dd23abd4cd448d5ce1f52caf29e8d617
+      size: 5008702
     - path: artifacts\prepared\train.tsv
-      md5: 553034c4cf40efc63c99c19fe98610d0
-      size: 18986541
+      md5: d0274eaad6203c3cd54bbe559774df1e
+      size: 18877617
+  featurize_data:
+    cmd: python src\stage_02_featurization.py
+    deps:
+    - path: configs\config.yaml
+      md5: 922494e9c50d517517b539824bf3b5fc
+      size: 324
+    - path: params.yaml
+      md5: d6f0507a9a0dcefe62198bea148bc6ff
+      size: 161
+    - path: src\stage_02_featurization.py
+      md5: fb86d9c5388dc178d1b5bcb7e5691a6f
+      size: 3134
+    - path: src\utils\common.py
+      md5: f5de7a106416a86463965d68d73ef954
+      size: 1192
+    - path: src\utils\data_managemnt.py
+      md5: 6a86fff1eb5a10c2db6680ecc08bf60b
+      size: 870
+    - path: src\utils\featurize.py
+      md5: 07a3c481ea02845ae07055726261f317
+      size: 710
+    outs:
+    - path: artifacts\Features\test.pkl
+      md5: 81164fa4daecfc05da4ad928f4144482
+      size: 2597441
+    - path: artifacts\Features\train.pkl
+      md5: 30c0f34f19273c212412655d72e44c2a
+      size: 10134729
