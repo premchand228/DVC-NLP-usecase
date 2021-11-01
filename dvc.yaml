@@ -38,14 +38,13 @@
         - artifacts/model/model.pkl
 
     evaluate:
-      cmd: python src\stage_04_evaluate.py --config=configs/config.yaml --params=params.yaml
+      cmd: python src\stage_04_evaluate.py --config=configs/config.yaml
       deps:
         - src\stage_04_evaluate.py
-        - artifacts/features/train.pkl
+        - artifacts\Features\test.pkl
         - src/utils/common.py
         - configs/config.yaml
-        - params.yaml
-
+        - artifacts/model/model.pkl
       metrics:
         - scores.json:
             cache: false
@@ -59,9 +58,8 @@
             x: fpr
             y: tpr
 
-    run_plots_commands:
+    run_plots_command:
       cmd: dvc plots diff
-
 
         
          
