@@ -4,6 +4,11 @@
       cmd: python src\stage_01_prepare_data.py
       deps:
       - src\stage_01_prepare_data.py
+      - data\data.xml
+      - src\utils\common.py
+      - src\utils\data_managemnt.py
+      - configs\config.yaml
+      - params.yaml
       outs:
       - artifacts\prepared\test.tsv
       - artifacts\prepared\train.tsv
