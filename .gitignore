@@ -138,6 +138,8 @@ dmypy.json
 configs/secrets.yaml
 
 # add your env folder here if its there
-
+/roc.json
+/prc.json
+/scores.json
 
 

@@ -36,3 +36,17 @@
     
       outs:
         - artifacts/model/model.pkl
+
+    evaluate:
+      cmd: python src\stage_04_evaluate.py --config=configs/config.yaml --params=params.yaml
+      deps:
+        - src\stage_04_evaluate.py
+        - artifacts/features/train.pkl
+        - src/utils/common.py
+        - configs/config.yaml
+        - params.yaml
+    
+      outs:
+        - roc.json
+        - prc.json
+        - scores.json     
