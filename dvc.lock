@@ -106,3 +106,5 @@ stages:
     - path: scores.json
       md5: fa71c8b611c9de96afc923706176d7a1
       size: 76
+  run_plots_commands:
+    cmd: dvc plots diff
