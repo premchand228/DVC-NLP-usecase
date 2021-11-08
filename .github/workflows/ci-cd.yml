@@ -1,5 +1,5 @@
 # add ci-cd steps here
-name: train-NLP-ML-usecase
+name: train-NLP-ML-usecase 
 
 on: [push]
 
