@@ -36,6 +36,6 @@ jobs:
           pip install -r requirements.txt
           dvc repro -v ## v >>> verbose
           echo "# REPORTS" >> report.md
-          echo "## metrics" >> report.md
+          echo "## metrics" >> report.md 
           cat scores.json >> report.md
           cml-send-comment report.md ## >> CML COMMAND USE TO COMMENT ON LAST COMMIT
