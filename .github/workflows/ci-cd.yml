@@ -29,7 +29,7 @@ jobs:
       - uses: actions/checkout@v2
       - name: "Train my model"
         env:
-          repo_token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
         run: |
           # Your ML workflow commands
           pip install --upgrade pip
